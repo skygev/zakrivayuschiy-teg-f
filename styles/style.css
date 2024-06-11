@@ -182,6 +182,7 @@
   min-inline-size: 100%;
   border: 1px solid var(--font-color);
   background-color: var(--bg-color);
+  position: relative;
 }
 
 .main-section__img-container img {
@@ -250,10 +251,6 @@
 /* АНИМАЦИЯ и другие эффекты в MAIN: */
 
 /* Псевдоэлемент html, css ... на карочках */
-
-.main-section__img-container {
-  position: relative;
-}
 
 .html_pseudo::before {
   position: absolute;
