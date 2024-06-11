@@ -3,10 +3,12 @@
 Будьте внимательны! Для корректной работы скриптов на этом сайте нужно, чтобы в HTML некоторые классы были названы особым образом:
 ✦ theme-dark — класс тёмной темы
 ✦ theme-light — класс светлой темы
+
 ✦ like-icon — для svg-иконки анимированного сердца
+
 ✦ card__like-button — для кнопки Like рядом с иконкой
 ✦ card__icon-button — для кнопки, оборачивающей иконку
-✦ card__icon-button — для кнопки, оборачивающей иконку
+
 ✦ is-liked — для обозначения состояния лайкнутой иконки в виде сердца
 ✦ button__text — для обозначения текстового элемента внутри кнопки
 
@@ -17,4 +19,493 @@
 .page {
   min-inline-size: 320px;
   min-block-size: 100dvb;
+  font-family: var(--font-main);
+  font-variation-settings: "wght" var(--font-weight-text);
+  font-size: var(--font-size-text);
+  color: var(--font-color);
+  background-color: var(--bg-color);
+  background-image: var(--background-image);
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* HEADER section*/
+
+.header {
+  margin: auto;
+  margin-block-start: 100px;
+  margin-block-end: 100px;
+  border: 2px solid var(--font-color);
+  background-color: var(--bg-color);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: auto;
+  font-family: var(--font-accent);
+  max-width: 696px;
+}
+
+.header__text-container {
+  padding-top: clamp(7.5rem, 7.1479rem + 1.5023vw, 8.5rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.header__logo-text {
+  font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
+}
+
+.header__base-text {
+  font-size: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
+  text-transform: uppercase;
+}
+
+.header__theme-menu {
+  margin: 21px 0 24px;
+}
+
+.theme-menu__list {
+  display: flex;
+  flex-direction: column;
+  align-self: flex-start;
+  padding-left: 18px;
+  gap: 9px;
+}
+
+.theme-menu__button {
+  font-size: 14px;
+  text-transform: uppercase;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+/* АНИМАЦИЯ и другие эффекты в HEADER: */
+
+/* Родительский контейнер для псевноэлементов */
+
+.theme-menu__button {
+  position: relative;
+}
+
+/* Псевдоэлемент плавно двигающаяся стрелка в активном состоянии*/
+
+.theme-menu__button:disabled::before {
+  content: "▶";
+  position: absolute;
+  left: -14px;
+  opacity: 0.6;
+  animation: arrow-move 0.5s ease-in-out infinite alternate;
+}
+
+@keyframes arrow-move {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(4px);
+  }
+}
+
+/* Псевдоэлемент подчеркивание при фокусе */
+
+.theme-menu__button:focus {
+  text-decoration: none;
+  outline: none;
+  opacity: 0.6;
+}
+
+.theme-menu__button::after {
+  content: "";
+  position: absolute;
+  bottom: 0; /* Расположение подчеркивания непосредственно под текстом */
+  left: 0;
+  width: 100%;
+  height: 2px; /* Толщина линии подчеркивания */
+  background-color: var(
+    --font-color
+  ); /* Цвет подчеркивания совпадает с цветом текста */
+  transform: scaleX(0); /* Начальное состояние - невидимое */
+  transform-origin: left; /* Точка трансформации - слева */
+  transition: transform 0.5s ease; /* Плавность перехода */
+}
+
+.theme-menu__button:focus::after,
+.theme-menu__button:focus-visible::after {
+  transform: scaleX(
+    1
+  ); /* В состоянии фокуса масштабируется до полного размера */
+}
+
+/* Разные состояния кнопки в Header*/
+
+.theme-menu__button:disabled {
+  opacity: 0.6;
+}
+
+.theme-menu__button:hover {
+  opacity: 0.6;
+}
+
+/* MAIN SECTION*/
+
+.main-section {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(
+    3.1875rem,
+    3.2425rem + -0.2347vw,
+    3.03125rem
+  ); /* from 51px to 48.5px */
+  min-inline-size: auto;
+  margin-bottom: 52px;
+  max-width: 696px;
+}
+
+.main-section__card {
+  display: inline-grid;
+  grid-template-rows: repeat(3, auto);
+  border: 1px solid var(--font-color);
+  background-color: var(--bg-color);
+}
+
+.main-section__header {
+  font-variation-settings: "wght" var(--font-weight-heading);
+  font-size: 18px;
+  padding: 4px 10px 4px;
+  border: 1px solid var(--font-color);
+  background-color: var(--bg-color);
+}
+
+.main-section__img-container {
+  min-inline-size: 100%;
+  border: 1px solid var(--font-color);
+  background-color: var(--bg-color);
+}
+
+.main-section__img-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  min-inline-size: 100%;
+}
+
+.main-section__paragraf-container {
+  padding: clamp(1.25rem, 1.118rem + 0.5634vw, 1.625rem) 26px 24px; /* top clamp 20->26px */
+  gap: 27px;
+  line-height: 21px;
+  border: 1px solid var(--font-color);
+  background-color: var(--bg-color);
+}
+.main__initial-text {
+  margin-bottom: 26.5px;
+}
+
+.main__bottom-text {
+  margin-bottom: 27px;
+}
+
+.main-section__buttons {
+  display: inline-grid;
+  grid-template-columns: repeat(2, min-content);
+  justify-content: end;
+  gap: 3px;
+  width: 100%;
+}
+
+.card__icon-button {
+  padding: 0;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  background-color: transparent;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+  height: 38px;
+  width: 44px;
+}
+
+.card__like-button {
+  background-color: transparent;
+  border: none;
+  display: flex;
+  font-family: var(--font-accent);
+  font-size: 14px;
+  font-style: normal;
+  line-height: normal;
+  padding: 10px;
+  background-color: transparent;
+  border: 2px solid var(--font-color);
+  cursor: pointer;
+  justify-content: center;
+  position: relative;
+  transition: box-shadow 0.5s ease-in-out;
+  overflow: hidden;
+  width: 130px;
+}
+
+/* АНИМАЦИЯ и другие эффекты в MAIN: */
+
+/* Псевдоэлемент html, css ... на карочках */
+
+.main-section__img-container {
+  position: relative;
+}
+
+.html_pseudo::before {
+  position: absolute;
+  content: "</HTML>";
+  top: clamp(1.5rem, 1.456rem + 0.1878vw, 1.625rem); /* from 24px to 26px */
+  right: clamp(
+    0.6875rem,
+    0.4234rem + 1.1268vw,
+    1.4375rem
+  ); /* from 11px to 23px */
+  color: var(--font-color);
+  font-family: var(--font-accent);
+  font-size: 14px;
+  opacity: 0.5;
+  text-shadow: -1px -1px 0 var(--html-outline-color),
+    1px -1px 0 var(--html-outline-color), -1px 1px 0 var(--html-outline-color),
+    1px 1px 0 var(--html-outline-color);
+}
+
+.css_pseudo::before {
+  position: absolute;
+  content: "<CSS>";
+  top: clamp(1.5rem, 1.456rem + 0.1878vw, 1.625rem); /* from 24px to 26px */
+  right: clamp(
+    0.6875rem,
+    0.4234rem + 1.1268vw,
+    1.4375rem
+  ); /* from 11px to 23px */
+  color: var(--font-color);
+  font-family: var(--font-accent);
+  font-size: 14px;
+  opacity: 0.5;
+  text-shadow: -1px -1px 0 var(--html-outline-color),
+    1px -1px 0 var(--html-outline-color), -1px 1px 0 var(--html-outline-color),
+    1px 1px 0 var(--html-outline-color);
+}
+
+@supports (-webkit-text-stroke: 1px var(--html-outline-color)) or
+  (text-stroke: 1px var(--html-outline-color)) {
+  .html_pseudo::before {
+    -webkit-text-stroke: 1px var(--html-outline-color);
+    text-shadow: none;
+  }
+  .css_pseudo::before {
+    -webkit-text-stroke: 1px var(--html-outline-color);
+    text-shadow: none;
+  }
+}
+
+/* Анимация кнопки в карточке */
+
+.card__like-button:focus,
+.card__icon-button:focus,
+.footer__save-button:focus {
+  text-decoration: none;
+  outline: none;
+}
+
+.card__like-button:focus,
+.card__like-button:focus-visible {
+  box-shadow: 2px 2px 0px 0px var(--font-color);
+}
+
+.card__like-button::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--font-color);
+  transform: scaleX(0); /* Начальное состояние - невидимое */
+  transform-origin: left; /* Точка трансформации - слева */
+  transition: transform 0.5s ease;
+  z-index: 0;
+}
+
+.card__like-button:hover::after {
+  transform: scaleX(1);
+}
+
+.button__text {
+  position: relative;
+  z-index: 1;
+  transition: color 0.5s ease;
+}
+
+.card__like-button:hover .button__text {
+  color: var(--font-like-color-hover);
+}
+
+/* FOOTER section*/
+
+.footer {
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  min-inline-size: 100%;
+  margin-bottom: 105px;
+  max-width: 696px;
+}
+
+.footer__save-button {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 2px solid var(--font-color);
+  background-color: var(--bg-color);
+  font-size: 14px;
+  font-family: var(--font-accent);
+  gap: 8px;
+  padding: 15px 20px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: box-shadow 0.5s ease;
+  color: var(--floppy-color);
+}
+
+.floppy-img {
+  width: 28px;
+  height: 28px;
+  mix-blend-mode: difference;
+  z-index: 1;
+}
+
+.footer__save-button:focus,
+.footer__save-button:focus-visible {
+  box-shadow: 2px 2px 0px 0px var(--font-color);
+}
+
+.footer__save-button::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--font-color);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s ease;
+  z-index: 0;
+}
+
+.footer__save-button:hover::after {
+  transform: scaleX(1);
+}
+
+.button__text {
+  position: relative;
+  z-index: 1;
+  transition: color 0.5s ease;
+}
+
+.footer__save-button:hover .button__text {
+  color: var(--font-like-color-hover);
+}
+
+.dialog {
+  padding: 0;
+  width: clamp(21.3125rem, 20.9604rem + 1.5023vw, 22.3125rem);
+  height: clamp(12.1875rem, 12.2315rem + -0.1878vw, 12.0625rem);
+  background-color: var(--bg-color);
+  color: var(--font-color);
+  font-family: var(--font-accent);
+  font-size: 14px;
+  line-height: 150%;
+  text-transform: uppercase;
+  border: 2px solid var(--font-color);
+}
+
+.dialog__main-container {
+  display: flex;
+  flex-direction: column;
+  padding: 30px 41px;
+  gap: 30px;
+}
+
+.dialog__container {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  justify-content: start;
+  align-items: center;
+  gap: 20px;
+}
+
+.dialog__svg-container {
+  width: 39px;
+  height: 39px;
+}
+
+.dialog__floppy {
+  width: 100%;
+  height: 100%;
+}
+
+.dialog__button {
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  text-transform: uppercase;
+  background-color: inherit;
+  cursor: pointer;
+  align-self: center;
+  border: 2px solid var(--font-color);
+  padding: 10px;
+  width: 100%;
+}
+
+dialog::backdrop {
+  background-color: rgb(0 0 0 / 0.75);
+}
+
+@media (width >=376px) {
+  .footer__save-button {
+    flex-direction: row;
+  }
+}
+
+/* Filters: */
+
+.img-filter-two {
+  filter: blur(0.3rem);
+}
+
+.img-filter-three {
+  filter: grayscale(1);
+}
+
+.img-filter-four {
+  filter: saturate(500%);
+}
+
+.img-filter-five {
+  filter: hue-rotate(-90deg);
+}
+
+.img-filter-six {
+  filter: sepia(100%);
+}
+
+.img-filter-seven {
+  filter: invert(0.7);
+}
+
+.img-filter-eight {
+  filter: invert(0.7) hue-rotate(-90deg);
 }

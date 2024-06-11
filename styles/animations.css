@@ -12,3 +12,79 @@
 
 Кроме этого, не меняйте HTML переключателя тем. Его разметка также гарантирует работу своего скрипта.
 */
+
+/* Анимация сердечка в карточке */
+
+.card__icon-button:focus,
+.card__icon-button:focus-visible {
+  border-color: var(--font-color);
+}
+
+.sparks,
+.main-body,
+.core {
+  opacity: 0;
+}
+
+.card__icon-button:hover .core {
+  transition: opacity 0.3s ease-in-out 0.03s;
+  opacity: var(--heart-core-color-black);
+}
+
+.card__icon-button:hover .main-body {
+  transition: opacity 0.3s ease-in-out 0.05s;
+  opacity: var(--heart-core-color-black);
+}
+
+.card__icon-button:active .core,
+.card__icon-button:active .main-body,
+.card__icon-button:active .contour {
+  transition: opacity 0.3s ease-in-out 0.05s;
+  fill: var(--heart-nature-color);
+}
+
+.like-icon.is-liked .core {
+  fill: var(--heart-nature-color);
+  transition: fill 0.3s ease-in-out;
+}
+
+.like-icon.is-liked .main-body {
+  fill: var(--heart-nature-color);
+  transition: fill 0.3s ease-in-out 0.05s;
+}
+
+.like-icon.is-liked .contour {
+  fill: var(--heart-nature-color);
+  transition: fill 0.3s ease-in-out 0.06s;
+}
+
+.like-icon.is-liked .heart {
+  animation: heart 0.3s ease-in-out 0.1s;
+}
+
+.like-icon.is-liked .sparks {
+  animation: sparks 0.3s ease-in-out 0.1s;
+}
+
+@keyframes heart {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.5);
+  }
+}
+
+@keyframes sparks {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
