@@ -15,13 +15,14 @@
     <link rel="stylesheet" href="./styles/themes.css" />
     <meta name="color-scheme" content="light dark" />
     <script src="./scripts/set-theme.js"></script>
-    <style></style>
   </head>
   <body class="page">
     <header class="header">
       <div class="header__text-container">
-        <h1 class="header__logo-text">&lt;/HTML&gt;</h1>
-        <h2 class="header__base-text">закрывающий тег</h2>
+        <a href="/" class="header__logo-link">
+          <span class="header__logo-text">&lt;/HTML&gt;</span>
+        </a>
+        <h1 class="header__base-text">закрывающий тег</h1>
       </div>
       <nav class="theme-menu header__theme-menu">
         <!-- Не меняйте разметку этого списка, иначе скрипты перестанут работать -->
@@ -56,7 +57,7 @@
           Фритрек и нулевой спринт: Подготовка к работе
         </h2>
         <div class="main-section__img-container">
-          <div class="html_pseudo" aria-hidden="true"></div>
+          <span class="decorative-label" aria-hidden="true">&lt;/HTML&gt;</span>
           <img
             class="img-filter-one main-section__img"
             src="./images/minivan.png"
@@ -73,7 +74,7 @@
             Место для ваших воспоминаний о начале обучения.
           </p>
           <div class="main-section__buttons">
-            <button class="card__icon-button">
+            <button class="card__icon-button" type="button">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="39"
@@ -109,7 +110,7 @@
                 />
               </svg>
             </button>
-            <button class="card__like-button">
+            <button class="card__like-button" type="button">
               <span class="button__text">Like</span>
             </button>
           </div>
@@ -119,9 +120,9 @@
       <article class="main-section__card">
         <h2 class="main-section__header">1 спринт: Я — чистый лист</h2>
         <div class="main-section__img-container">
-          <div class="html_pseudo" aria-hidden="true"></div>
+          <span class="decorative-label" aria-hidden="true">&lt;/HTML&gt;</span>
           <img
-            class="img-filter-two main-section__img"
+            class="img-filter-blur main-section__img"
             src="./images/minivan.png"
             alt="минивэн"
           />
@@ -138,7 +139,7 @@
             Место для ваших воспоминаний о начале первого спринта.
           </p>
           <div class="main-section__buttons">
-            <button class="card__icon-button">
+            <button class="card__icon-button" type="button">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="39"
@@ -174,7 +175,7 @@
                 />
               </svg>
             </button>
-            <button class="card__like-button">
+            <button class="card__like-button" type="button">
               <span class="button__text">Like</span>
             </button>
           </div>
@@ -184,9 +185,9 @@
       <article class="main-section__card">
         <h2 class="main-section__header">1 спринт: А если не получится?</h2>
         <div class="main-section__img-container">
-          <div class="html_pseudo" aria-hidden="true"></div>
+          <span class="decorative-label" aria-hidden="true">&lt;/CSS&gt;</span>
           <img
-            class="img-filter-three main-section__img"
+            class="img-filter-grayscale main-section__img"
             src="./images/minivan.png"
             alt="минивэн"
           />
@@ -201,7 +202,7 @@
             Место для ваших воспоминаний об окончании первого спринта.
           </p>
           <div class="main-section__buttons">
-            <button class="card__icon-button">
+            <button class="card__icon-button" type="button">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="39"
@@ -237,7 +238,7 @@
                 />
               </svg>
             </button>
-            <button class="card__like-button">
+            <button class="card__like-button" type="button">
               <span class="button__text">Like</span>
             </button>
           </div>
@@ -247,9 +248,11 @@
       <article class="main-section__card">
         <h2 class="main-section__header">2 спринт: Погоня за идеалом</h2>
         <div class="main-section__img-container">
-          <div class="html_pseudo" aria-hidden="true"></div>
+          <span class="decorative-label" aria-hidden="true"
+            >&lt;desigions&gt;</span
+          >
           <img
-            class="img-filter-four main-section__img"
+            class="img-filter-saturate main-section__img"
             src="./images/minivan.png"
             alt="минивэн"
           />
@@ -266,7 +269,7 @@
             Место для ваших воспоминаний о начале второго спринта.
           </p>
           <div class="main-section__buttons">
-            <button class="card__icon-button">
+            <button class="card__icon-button" type="button">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="39"
@@ -302,7 +305,7 @@
                 />
               </svg>
             </button>
-            <button class="card__like-button">
+            <button class="card__like-button" type="button">
               <span class="button__text">Like</span>
             </button>
           </div>
@@ -312,9 +315,9 @@
       <article class="main-section__card">
         <h2 class="main-section__header">2 спринт: О тех, кто рядом</h2>
         <div class="main-section__img-container">
-          <div class="html_pseudo" aria-hidden="true"></div>
+          <span class="decorative-label" aria-hidden="true">&lt;care&gt;</span>
           <img
-            class="img-filter-five main-section__img"
+            class="img-filter-hue-rotate main-section__img"
             src="./images/minivan.png"
             alt="минивэн"
           />
@@ -332,7 +335,7 @@
             Место для ваших воспоминаний об окончании второго спринта.
           </p>
           <div class="main-section__buttons">
-            <button class="card__icon-button">
+            <button class="card__icon-button" type="button">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="39"
@@ -368,7 +371,7 @@
                 />
               </svg>
             </button>
-            <button class="card__like-button">
+            <button class="card__like-button" type="button">
               <span class="button__text">Like</span>
             </button>
           </div>
@@ -378,9 +381,11 @@
       <article class="main-section__card">
         <h2 class="main-section__header">3 спринт: Обходные стратегии</h2>
         <div class="main-section__img-container">
-          <div class="html_pseudo" aria-hidden="true"></div>
+          <span class="decorative-label" aria-hidden="true"
+            >&lt;support&gt;</span
+          >
           <img
-            class="img-filter-six main-section__img"
+            class="img-filter-sepia main-section__img"
             src="./images/minivan.png"
             alt="минивэн"
           />
@@ -395,7 +400,7 @@
             Место для ваших воспоминаний о начале третьего спринта.
           </p>
           <div class="main-section__buttons">
-            <button class="card__icon-button">
+            <button class="card__icon-button" type="button">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="39"
@@ -431,7 +436,7 @@
                 />
               </svg>
             </button>
-            <button class="card__like-button">
+            <button class="card__like-button" type="button">
               <span class="button__text">Like</span>
             </button>
           </div>
@@ -441,9 +446,11 @@
       <article class="main-section__card">
         <h2 class="main-section__header">3 спринт: Когда опускаются руки</h2>
         <div class="main-section__img-container">
-          <div class="html_pseudo" aria-hidden="true"></div>
+          <span class="decorative-label" aria-hidden="true"
+            >&lt;lifes-style: none;&gt;</span
+          >
           <img
-            class="img-filter-seven main-section__img"
+            class="img-filter-invert main-section__img"
             src="./images/minivan.png"
             alt="минивэн"
           />
@@ -460,7 +467,7 @@
             Место для ваших воспоминаний об окончании третьего спринта.
           </p>
           <div class="main-section__buttons">
-            <button class="card__icon-button">
+            <button class="card__icon-button" type="button">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="39"
@@ -496,7 +503,7 @@
                 />
               </svg>
             </button>
-            <button class="card__like-button">
+            <button class="card__like-button" type="button">
               <span class="button__text">Like</span>
             </button>
           </div>
@@ -506,9 +513,11 @@
       <article class="main-section__card">
         <h2 class="main-section__header">«Сейчас я здесь»</h2>
         <div class="main-section__img-container">
-          <div class="html_pseudo" aria-hidden="true"></div>
+          <span class="decorative-label" aria-hidden="true"
+            >&lt;experience&gt;</span
+          >
           <img
-            class="img-filter-eight main-section__img"
+            class="img-filter-invert-hue-rotate main-section__img"
             src="./images/minivan.png"
             alt="минивэн"
           />
@@ -527,7 +536,7 @@
             этой точке пути.
           </p>
           <div class="main-section__buttons">
-            <button class="card__icon-button">
+            <button class="card__icon-button" type="button">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="39"
@@ -563,57 +572,58 @@
                 />
               </svg>
             </button>
-            <button class="card__like-button">
+            <button class="card__like-button" type="button">
               <span class="button__text">Like</span>
             </button>
           </div>
         </div>
       </article>
-    </main>
-    <footer class="footer">
-      <button
-        class="footer__save-button"
-        type="button"
-        onclick="window['dialog-id'].showModal();"
-        aria-controls="dialog-id"
-      >
-        <svg
-          class="floppy-img"
-          xmlns="http://www.w3.org/2000/svg"
-          width="28"
-          height="28"
-          fill="var(--floppy-reverse)"
-          viewBox="0 0 28 28"
+      <div class="footer">
+        <button
+          class="footer__save-button"
+          type="button"
+          onclick="window['dialog-id'].showModal();"
+          aria-controls="dialog-id"
         >
-          <use class="floppy-color" href="./svg/floppy.svg#floppy"></use>
-        </svg>
-        <span class="button__text">Сохранить на память</span>
-      </button>
-    </footer>
-  <dialog class="dialog" id="dialog-id">
-    <div class="dialog__main-container">
-      <div class="dialog__container">
-        <svg
-          class="dialog__svg-container"
-          xmlns="http://www.w3.org/2000/svg"
-          fill="var(--floppy-color)"
-        >
-          <use
-            class="dialog__floppy"
-            href="./svg/floppy-dialog.svg#floppy-dialog"
-          ></use>
-        </svg>
-        <p class="dialog__text">Вставьте дискету, чтобы продолжить</p>
+          <svg
+            class="floppy-img"
+            xmlns="http://www.w3.org/2000/svg"
+            width="28"
+            height="28"
+            fill="var(--floppy-reverse)"
+            viewBox="0 0 28 28"
+          >
+            <use class="floppy-color" href="./svg/floppy.svg#floppy"></use>
+          </svg>
+          <span class="button__text">Сохранить на память</span>
+        </button>
       </div>
-      <button
-        type="button"
-        onclick="window['dialog-id'].close()"
-        class="dialog__button"
-      >
-        ок
-      </button>
-    </div>
-  </dialog>
-  <script src="./scripts/like.js"></script>
-</body>
+    </main>
+    <dialog class="dialog" id="dialog-id">
+      <div class="dialog__main-container">
+        <div class="dialog__container">
+          <svg
+            class="dialog__svg-container"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="var(--floppy-color)"
+          >
+            <use
+              class="dialog__floppy"
+              href="./svg/floppy-dialog.svg#floppy-dialog"
+            ></use>
+          </svg>
+          <p class="dialog__text">Вставьте дискету, чтобы продолжить</p>
+        </div>
+        <button
+          type="button"
+          onclick="window['dialog-id'].close()"
+          class="dialog__button"
+        >
+          <span class="button__text">ок</span>
+        </button>
+      </div>
+    </dialog>
+
+    <script src="./scripts/like.js"></script>
+  </body>
 </html>

@@ -27,6 +27,8 @@
   background-image: var(--background-image);
   background-size: cover;
   display: flex;
+  background-position: center;
+  background-attachment: fixed;
   flex-direction: column;
   justify-content: center;
 }
@@ -58,6 +60,15 @@
 
 .header__logo-text {
   font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
+  text-transform: uppercase;
+}
+
+.header__logo-link {
+  text-decoration: none;
+}
+
+.header__logo-link:focus {
+  outline: none;
 }
 
 .header__base-text {
@@ -70,7 +81,7 @@
 }
 
 .theme-menu__list {
-  display: flex;
+  display: inline-flex;
   flex-direction: column;
   align-self: flex-start;
   padding-left: 18px;
@@ -93,18 +104,10 @@
 .theme-menu__button:disabled::before {
   content: "▶";
   position: absolute;
+  top: 0;
   left: -14px;
   opacity: 0.6;
   animation: arrow-move 0.5s ease-in-out infinite alternate;
-}
-
-@keyframes arrow-move {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(4px);
-  }
 }
 
 /* Псевдоэлемент подчеркивание при фокусе */
@@ -119,15 +122,15 @@
   content: "";
   position: absolute;
   bottom: 0; /* Расположение подчеркивания непосредственно под текстом */
-  left: 0;
-  width: 100%;
+  left: 4px; /* Сдвиг подчеркивания на 2px вправо */
+  width: 89%;
   height: 2px; /* Толщина линии подчеркивания */
   background-color: var(
     --font-color
   ); /* Цвет подчеркивания совпадает с цветом текста */
   transform: scaleX(0); /* Начальное состояние - невидимое */
   transform-origin: left; /* Точка трансформации - слева */
-  transition: transform 0.5s ease; /* Плавность перехода */
+  transition: transform 0.3s ease; /* Плавность перехода */
 }
 
 .theme-menu__button:focus::after,
@@ -141,6 +144,7 @@
 
 .theme-menu__button:disabled {
   opacity: 0.6;
+  pointer-events: none; /* Сброс контроля события */
 }
 
 .theme-menu__button:hover {
@@ -194,7 +198,7 @@
 }
 
 .main-section__paragraf-container {
-  padding: clamp(1.25rem, 1.118rem + 0.5634vw, 1.625rem) 26px 24px; /* top clamp 20->26px */
+  padding: clamp(1.25rem, 1.1686rem + 0.3474vw, 1.48125rem) 24.5px 20px;
   gap: 27px;
   line-height: 21px;
   border: 1px solid var(--font-color);
@@ -227,34 +231,37 @@
   transition: border-color 0.3s ease;
   height: 38px;
   width: 44px;
+  transform-origin: center;
+}
+
+.heart {
+  transform-origin: 50%;
 }
 
 .card__like-button {
   background-color: transparent;
- 
   display: flex;
   font-family: var(--font-accent);
   font-size: 14px;
   font-style: normal;
   line-height: normal;
   padding: 10px;
-
   border: 2px solid var(--font-color);
   cursor: pointer;
   justify-content: center;
   position: relative;
-  transition: box-shadow 0.5s ease-in-out;
+  transition: box-shadow 0.3s ease-in-out;
   overflow: hidden;
   width: 130px;
+  color: var(--button-text-color);
 }
 
 /* АНИМАЦИЯ и другие эффекты в MAIN: */
 
-/* Псевдоэлемент html, css ... на карочках */
+/* Label html, css ... на карочках */
 
-.html_pseudo::before {
+.decorative-label {
   position: absolute;
-  content: "</HTML>";
   top: clamp(1.5rem, 1.456rem + 0.1878vw, 1.625rem); /* from 24px to 26px */
   right: clamp(
     0.6875rem,
@@ -268,33 +275,13 @@
   text-shadow: -1px -1px 0 var(--html-outline-color),
     1px -1px 0 var(--html-outline-color), -1px 1px 0 var(--html-outline-color),
     1px 1px 0 var(--html-outline-color);
-}
-
-.css_pseudo::before {
-  position: absolute;
-  content: "<CSS>";
-  top: clamp(1.5rem, 1.456rem + 0.1878vw, 1.625rem); /* from 24px to 26px */
-  right: clamp(
-    0.6875rem,
-    0.4234rem + 1.1268vw,
-    1.4375rem
-  ); /* from 11px to 23px */
-  color: var(--font-color);
-  font-family: var(--font-accent);
-  font-size: 14px;
-  opacity: 0.5;
-  text-shadow: -1px -1px 0 var(--html-outline-color),
-    1px -1px 0 var(--html-outline-color), -1px 1px 0 var(--html-outline-color),
-    1px 1px 0 var(--html-outline-color);
+  mix-blend-mode: hard-light;
+  z-index: 2;
 }
 
 @supports (-webkit-text-stroke: 1px var(--html-outline-color)) or
   (text-stroke: 1px var(--html-outline-color)) {
-  .html_pseudo::before {
-    -webkit-text-stroke: 1px var(--html-outline-color);
-    text-shadow: none;
-  }
-  .css_pseudo::before {
+  .decorative-label {
     -webkit-text-stroke: 1px var(--html-outline-color);
     text-shadow: none;
   }
@@ -304,17 +291,21 @@
 
 .card__like-button:focus,
 .card__icon-button:focus,
-.footer__save-button:focus {
+.footer__save-button:focus,
+.dialog__button:focus {
   text-decoration: none;
   outline: none;
 }
 
 .card__like-button:focus,
-.card__like-button:focus-visible {
+.card__like-button:focus-visible,
+.dialog__button:focus,
+.dialog__button:focus-visible {
   box-shadow: 2px 2px 0px 0px var(--font-color);
 }
 
-.card__like-button::after {
+.card__like-button::after,
+.dialog__button::after {
   content: "";
   position: absolute;
   bottom: 0;
@@ -324,25 +315,31 @@
   background-color: var(--font-color);
   transform: scaleX(0); /* Начальное состояние - невидимое */
   transform-origin: left; /* Точка трансформации - слева */
-  transition: transform 0.5s ease;
+  transition: transform 0.3s ease;
   z-index: 0;
 }
 
-.card__like-button:hover::after {
+.card__like-button:hover::after,
+.dialog__button:hover::after {
   transform: scaleX(1);
 }
 
 .button__text {
   position: relative;
+  color: var(--button-text-reverse-color);
+  mix-blend-mode: difference;
   z-index: 1;
-  transition: color 0.5s ease;
 }
 
-.card__like-button:hover .button__text {
-  color: var(--font-like-color-hover);
+/* Анимация сердечка в карточке */
+
+.card__icon-button:focus,
+.card__icon-button:focus-visible {
+  border-color: var(--font-color);
+  transition: border-color 0.3s ease;
 }
 
-/* FOOTER section*/
+/* Main-FOOTER section*/
 
 .footer {
   margin: auto;
@@ -367,7 +364,7 @@
   cursor: pointer;
   position: relative;
   overflow: hidden;
-  transition: box-shadow 0.5s ease;
+  transition: box-shadow 0.3s ease;
   color: var(--floppy-color);
 }
 
@@ -401,14 +398,10 @@
   transform: scaleX(1);
 }
 
-.footer__save-button:hover .button__text {
-  color: var(--font-like-color-hover);
-}
-
 .dialog {
   padding: 0;
   width: clamp(21.3125rem, 20.9604rem + 1.5023vw, 22.3125rem);
-  height: clamp(12.1875rem, 12.2315rem + -0.1878vw, 12.0625rem);
+  min-height: clamp(12.1875rem, 12.2315rem + -0.1878vw, 12.0625rem);
   background-color: var(--bg-color);
   color: var(--font-color);
   font-family: var(--font-accent);
@@ -444,16 +437,19 @@
 }
 
 .dialog__button {
-
   display: flex;
   justify-content: center;
   text-transform: uppercase;
   background-color: inherit;
   cursor: pointer;
   align-self: center;
-  border: 2px solid var(--font-color);
+  border: 2px solid var(--button-text-color);
   padding: 10px;
   width: 100%;
+  color: var(--button-text-color);
+  position: relative;
+  transition: box-shadow 0.3s ease-in-out;
+  overflow: hidden;
 }
 
 dialog::backdrop {
@@ -468,30 +464,30 @@ dialog::backdrop {
 
 /* Filters: */
 
-.img-filter-two {
+.img-filter-blur {
   filter: blur(0.3rem);
 }
 
-.img-filter-three {
+.img-filter-grayscale {
   filter: grayscale(1);
 }
 
-.img-filter-four {
+.img-filter-saturate {
   filter: saturate(500%);
 }
 
-.img-filter-five {
+.img-filter-hue-rotate {
   filter: hue-rotate(-90deg);
 }
 
-.img-filter-six {
+.img-filter-sepia {
   filter: sepia(100%);
 }
 
-.img-filter-seven {
+.img-filter-invert {
   filter: invert(0.7);
 }
 
-.img-filter-eight {
+.img-filter-invert-hue-rotate {
   filter: invert(0.7) hue-rotate(-90deg);
 }

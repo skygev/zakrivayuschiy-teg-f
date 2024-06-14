@@ -13,12 +13,18 @@
 Кроме этого, не меняйте HTML переключателя тем. Его разметка также гарантирует работу своего скрипта.
 */
 
-/* Анимация сердечка в карточке */
+/* Псевдоэлемент плавно двигающаяся стрелка в активном состоянии*/
 
-.card__icon-button:focus,
-.card__icon-button:focus-visible {
-  border-color: var(--font-color);
+@keyframes arrow-move {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(4px);
+  }
 }
+
+/* Анимация сердечка в карточке */
 
 .sparks,
 .main-body,
@@ -27,43 +33,53 @@
 }
 
 .card__icon-button:hover .core {
-  transition: opacity 0.3s ease-in-out 0.03s;
-  opacity: var(--heart-core-color-black);
+  transition: opacity 0.3s linear 0.03s;
+  opacity: var(--heart-core-color);
 }
 
 .card__icon-button:hover .main-body {
-  transition: opacity 0.3s ease-in-out 0.05s;
-  opacity: var(--heart-core-color-black);
+  transition: opacity 0.3s linear 0.05s;
+  opacity: var(--heart-core-color);
 }
 
-.card__icon-button:active .core,
-.card__icon-button:active .main-body,
-.card__icon-button:active .contour {
-  transition: opacity 0.3s ease-in-out 0.05s;
+.card__icon-button:active .core {
+  transition: opacity 0.3s linear 0.03s;
+  opacity: var(--heart-nature-color);
+}
+
+.card__icon-button:active .main-body {
+  transition: opacity 0.3s linear 0.05s;
   fill: var(--heart-nature-color);
+}
+
+.like-icon .contour {
+  fill: var(--heart-core-color);
+  transition: fill 0.3s linear 0.03s;
 }
 
 .like-icon.is-liked .core {
   fill: var(--heart-nature-color);
-  transition: fill 0.3s ease-in-out;
+  transition: fill 0.3s linear 0.03s;
 }
 
 .like-icon.is-liked .main-body {
   fill: var(--heart-nature-color);
-  transition: fill 0.3s ease-in-out 0.05s;
+  transition: fill 0.3s linear 0.05s;
 }
 
 .like-icon.is-liked .contour {
   fill: var(--heart-nature-color);
-  transition: fill 0.3s ease-in-out 0.06s;
+  transition: fill 0.3s linear 0.06s;
 }
 
+/* Keyframes */
+
 .like-icon.is-liked .heart {
-  animation: heart 0.3s ease-in-out 0.1s;
+  animation: heart 0.3s linear 0.1s;
 }
 
 .like-icon.is-liked .sparks {
-  animation: sparks 0.3s ease-in-out 0.1s;
+  animation: sparks 0.3s linear 0.1s;
 }
 
 @keyframes heart {
@@ -71,7 +87,7 @@
     transform: scale(1);
   }
 
-  50% {
+  100% {
     transform: scale(1.5);
   }
 }
@@ -80,11 +96,8 @@
   0% {
     opacity: 0;
   }
-  50% {
-    opacity: 0.5;
-  }
+
   100% {
     opacity: 1;
   }
 }
-
