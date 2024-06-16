@@ -327,7 +327,7 @@
   transform-origin: left; /* Точка трансформации - слева */
   transition: transform 0.5s ease-in-out;
   z-index: 0;
-  }
+}
 
 .card_general:hover::after {
   transform: scaleX(1);
@@ -343,7 +343,6 @@
 /* Main-FOOTER section*/
 
 .footer {
-  margin: auto;
   display: flex;
   justify-content: center;
   min-inline-size: 100%;
