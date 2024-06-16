@@ -63,10 +63,6 @@
   text-transform: uppercase;
 }
 
-.header__logo-link {
-  text-decoration: none;
-}
-
 .header__logo-link:focus {
   outline: none;
 }
@@ -85,7 +81,7 @@
   flex-direction: column;
   align-self: flex-start;
   padding-left: 18px;
-  gap: 9px;
+  gap: 11px;
 }
 
 .theme-menu__button {
@@ -95,6 +91,7 @@
   border: none;
   cursor: pointer;
   position: relative;
+  padding: 0;
 }
 
 /* АНИМАЦИЯ и другие эффекты в HEADER: */
@@ -105,7 +102,7 @@
   content: "▶";
   position: absolute;
   top: 0;
-  left: -14px;
+  left: -20px;
   opacity: 0.6;
   animation: arrow-move 0.5s ease-in-out infinite alternate;
 }
@@ -121,9 +118,9 @@
 .theme-menu__button::after {
   content: "";
   position: absolute;
-  bottom: 0; /* Расположение подчеркивания непосредственно под текстом */
-  left: 4px; /* Сдвиг подчеркивания на 2px вправо */
-  width: 89%;
+  bottom: -1px; /* Расположение подчеркивания непосредственно под текстом */
+  left: 0; /* Сдвиг подчеркивания на 2px вправо */
+  width: 100%;
   height: 2px; /* Толщина линии подчеркивания */
   background-color: var(
     --font-color
@@ -145,10 +142,12 @@
 .theme-menu__button:disabled {
   opacity: 0.6;
   pointer-events: none; /* Сброс контроля события */
+  transition: opacity 0.3s ease;
 }
 
 .theme-menu__button:hover {
   opacity: 0.6;
+  transition: opacity 0.3s ease;
 }
 
 /* MAIN SECTION*/
@@ -163,7 +162,8 @@
     3.03125rem
   ); /* from 51px to 48.5px */
   min-inline-size: auto;
-  margin-bottom: 52px;
+  /*   margin-bottom: 52px;
+ */
   max-width: 696px;
 }
 
@@ -198,18 +198,13 @@
 }
 
 .main-section__paragraf-container {
-  padding: clamp(1.25rem, 1.1686rem + 0.3474vw, 1.48125rem) 24.5px 20px;
-  gap: 27px;
+  padding: clamp(1.25rem, 1.1686rem + 0.3474vw, 1.48125rem) 25.5px 25.5px;
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
   line-height: 21px;
   border: 1px solid var(--font-color);
   background-color: var(--bg-color);
-}
-.main__initial-text {
-  margin-bottom: 26.5px;
-}
-
-.main__bottom-text {
-  margin-bottom: 27px;
 }
 
 .main-section__buttons {
@@ -234,24 +229,51 @@
   transform-origin: center;
 }
 
+/* Анимация сердечка в карточке */
+
+.card__icon-button:focus {
+  text-decoration: none;
+  outline: none;
+}
+
+.card__icon-button:focus,
+.card__icon-button:focus-visible {
+  border-color: var(--font-color);
+  transition: border-color 0.3s ease;
+}
+
 .heart {
   transform-origin: 50%;
 }
 
-.card__like-button {
-  background-color: transparent;
+.card_general {
   display: flex;
   font-family: var(--font-accent);
   font-size: 14px;
   font-style: normal;
   line-height: normal;
-  padding: 10px;
   border: 2px solid var(--font-color);
   cursor: pointer;
-  justify-content: center;
   position: relative;
-  transition: box-shadow 0.3s ease-in-out;
+  transition: box-shadow 0.3s ease;
   overflow: hidden;
+}
+
+.card_general:focus {
+  text-decoration: none;
+  outline: none;
+}
+
+.card_general:focus,
+.card_general:focus-visible {
+  box-shadow: 2px 2px 0px 0px var(--font-color);
+}
+
+.card__like-button {
+  background-color: transparent;
+  font-family: var(--font-accent);
+  padding: 10px;
+  justify-content: center;
   width: 130px;
   color: var(--button-text-color);
 }
@@ -289,23 +311,11 @@
 
 /* Анимация кнопки в карточке */
 
-.card__like-button:focus,
-.card__icon-button:focus,
-.footer__save-button:focus,
-.dialog__button:focus {
-  text-decoration: none;
-  outline: none;
+.card__like-button:focus-visible {
+  border-color: var(--font-color);
 }
 
-.card__like-button:focus,
-.card__like-button:focus-visible,
-.dialog__button:focus,
-.dialog__button:focus-visible {
-  box-shadow: 2px 2px 0px 0px var(--font-color);
-}
-
-.card__like-button::after,
-.dialog__button::after {
+.card_general::after {
   content: "";
   position: absolute;
   bottom: 0;
@@ -315,12 +325,11 @@
   background-color: var(--font-color);
   transform: scaleX(0); /* Начальное состояние - невидимое */
   transform-origin: left; /* Точка трансформации - слева */
-  transition: transform 0.3s ease;
+  transition: transform 0.5s ease-in-out;
   z-index: 0;
-}
+  }
 
-.card__like-button:hover::after,
-.dialog__button:hover::after {
+.card_general:hover::after {
   transform: scaleX(1);
 }
 
@@ -331,14 +340,6 @@
   z-index: 1;
 }
 
-/* Анимация сердечка в карточке */
-
-.card__icon-button:focus,
-.card__icon-button:focus-visible {
-  border-color: var(--font-color);
-  transition: border-color 0.3s ease;
-}
-
 /* Main-FOOTER section*/
 
 .footer {
@@ -346,25 +347,17 @@
   display: flex;
   justify-content: center;
   min-inline-size: 100%;
-  margin-bottom: 105px;
+  margin: -1px 0 98px;
   max-width: 696px;
 }
 
 .footer__save-button {
   margin: auto;
-  display: flex;
   flex-direction: column;
   align-items: center;
-  border: 2px solid var(--font-color);
   background-color: var(--bg-color);
-  font-size: 14px;
-  font-family: var(--font-accent);
   gap: 8px;
   padding: 15px 20px;
-  cursor: pointer;
-  position: relative;
-  overflow: hidden;
-  transition: box-shadow 0.3s ease;
   color: var(--floppy-color);
 }
 
@@ -375,33 +368,9 @@
   z-index: 1;
 }
 
-.footer__save-button:focus,
-.footer__save-button:focus-visible {
-  box-shadow: 2px 2px 0px 0px var(--font-color);
-}
-
-.footer__save-button::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: var(--font-color);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.5s ease;
-  z-index: 0;
-}
-
-.footer__save-button:hover::after {
-  transform: scaleX(1);
-}
-
 .dialog {
   padding: 0;
   width: clamp(21.3125rem, 20.9604rem + 1.5023vw, 22.3125rem);
-  min-height: clamp(12.1875rem, 12.2315rem + -0.1878vw, 12.0625rem);
   background-color: var(--bg-color);
   color: var(--font-color);
   font-family: var(--font-accent);
@@ -437,19 +406,13 @@
 }
 
 .dialog__button {
-  display: flex;
   justify-content: center;
   text-transform: uppercase;
   background-color: inherit;
-  cursor: pointer;
   align-self: center;
-  border: 2px solid var(--button-text-color);
   padding: 10px;
   width: 100%;
   color: var(--button-text-color);
-  position: relative;
-  transition: box-shadow 0.3s ease-in-out;
-  overflow: hidden;
 }
 
 dialog::backdrop {
@@ -459,6 +422,16 @@ dialog::backdrop {
 @media (width >=376px) {
   .footer__save-button {
     flex-direction: row;
+  }
+
+  .main-section__paragraf-container {
+    padding: clamp(1.25rem, 1.1686rem + 0.3474vw, 1.48125rem) 24.5px 24px;
+    gap: 27px;
+  }
+
+  .floppy-img {
+    width: 21px;
+    height: 21px;
   }
 }
 
