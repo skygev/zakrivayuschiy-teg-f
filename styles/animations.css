@@ -27,7 +27,7 @@
 /* Анимация сердечка в карточке */
 
 .like-icon .core {
-  transition: fill 0.3s linear;
+  transition: fill 0.3s linear 0.03s;
   fill: var(--bg-color);
 }
 
@@ -37,7 +37,7 @@
 }
 
 .like-icon .contour {
-  transition: fill 0.3s linear;
+  transition: fill 0.1s linear;
   fill: var(--heart-contour-color);
 }
 
@@ -51,7 +51,7 @@
 }
 
 .like-icon:hover .main-body {
-  transition: fill 0.3s linear;
+  transition: fill 0.3s linear 0.05s;
   fill: var(--heart-contour-color);
 }
 
@@ -61,13 +61,13 @@
 }
 
 .like-icon:active .main-body {
-  transition: fill 0.3s linear;
+  transition: fill 0.3s linear 0.05s;
   fill: var(--heart-nature-color);
 }
 
 .like-icon.is-liked .core {
   fill: var(--heart-nature-color);
-  transition: fill 0.3s linear 0.03s;
+  transition: fill 0.3s linear;
 }
 
 .like-icon.is-liked .main-body {

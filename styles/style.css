@@ -92,6 +92,7 @@
   cursor: pointer;
   position: relative;
   padding: 0;
+  transition: opacity 0.3s ease;
 }
 
 /* АНИМАЦИЯ и другие эффекты в HEADER: */
@@ -142,12 +143,10 @@
 .theme-menu__button:disabled {
   opacity: 0.6;
   pointer-events: none; /* Сброс контроля события */
-  transition: opacity 0.3s ease;
 }
 
 .theme-menu__button:hover {
   opacity: 0.6;
-  transition: opacity 0.3s ease;
 }
 
 /* MAIN SECTION*/
@@ -223,10 +222,10 @@
   background-color: transparent;
   border: 2px solid transparent;
   cursor: pointer;
-  transition: var(--transition-border-color);
   height: 38px;
   width: 44px;
   transform-origin: center;
+  transition: border-color 0.3s ease;
 }
 
 /* Анимация сердечка в карточке */
@@ -239,7 +238,6 @@
 .card__icon-button:focus,
 .card__icon-button:focus-visible {
   border-color: var(--font-color);
-  transition: var(--transition-border-color);
 }
 
 .heart {
@@ -311,10 +309,6 @@
 
 /* Анимация кнопки в карточке */
 
-.card__like-button:focus-visible {
-  border-color: var(--font-color);
-}
-
 .card_general::after {
   content: "";
   position: absolute;
@@ -346,7 +340,7 @@
   display: flex;
   justify-content: center;
   min-inline-size: 100%;
-  margin: -1px 0 98px;
+  margin: 0 0 98px;
   max-width: 696px;
 }
 
@@ -355,7 +349,7 @@
   flex-direction: column;
   align-items: center;
   background-color: var(--bg-color);
-  gap: 8px;
+  gap: 7px;
   padding: 15px 20px;
   color: var(--floppy-color);
 }
