@@ -223,7 +223,7 @@
   background-color: transparent;
   border: 2px solid transparent;
   cursor: pointer;
-  transition: border-color 0.3s ease;
+  transition: var(--transition-border-color);
   height: 38px;
   width: 44px;
   transform-origin: center;
@@ -239,7 +239,7 @@
 .card__icon-button:focus,
 .card__icon-button:focus-visible {
   border-color: var(--font-color);
-  transition: border-color 0.3s ease;
+  transition: var(--transition-border-color);
 }
 
 .heart {

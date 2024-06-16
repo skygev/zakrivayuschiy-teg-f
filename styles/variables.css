@@ -19,6 +19,7 @@
   --button-text-reverse-color: #fff;
 
   --bg-color: #fff;
+  --transition-border-color: border-color 0.3s ease;
   --background-image: repeating-linear-gradient(
       #d3d3d3 0 2px,
       transparent 2px 4px
